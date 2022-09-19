@@ -1,0 +1,36 @@
+<section class="calculator">
+    <div *ngIf="calculatorResponse.equal;">
+        <h3 class="mdc-typography--body">Votre montant est composé des cartes suivantes : </h3>
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell" *ngFor="let card of calculatorResponse.equal.cards">
+                    <div class="mdc-card">
+                        <div class="mdc-card__content">{{card}}€</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!calculatorResponse.equal  && calculatorResponse.floor && calculatorResponse.ceil;">
+        <h3 class="mdc-typography--body">Le montant demandé n'est pas disponible, veuillez choisir un autre : </h3>
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell">
+                    <div
+                        class="mdc-card select"
+                        (click)="selectAmount(calculatorResponse.floor.value)">
+                        <div class="mdc-card__content">{{calculatorResponse.floor.value}}€</div>
+                    </div>
+                </div>
+                <div class="mdc-layout-grid__cell">
+                    <div
+                        class="mdc-card select"
+                        (click)="selectAmount(calculatorResponse.ceil.value)">
+                        <div class="mdc-card__content">{{calculatorResponse.ceil.value}}€</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

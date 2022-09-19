@@ -1,0 +1,41 @@
+@use "@material/theme";
+@use "@material/snackbar";
+
+.toast-wrapper {
+    position: fixed;
+    z-index: 99;
+    bottom: 64px;
+    right: 5px;
+    left: auto;
+
+    .mdc-snackbar {
+        @include snackbar.fill-color(background);
+        @include snackbar.label-ink-color(secondary);
+        position: relative;
+
+        .is-info,
+        .is-danger,
+        .is-success {
+            border-left: 4px solid;
+        }
+
+        .is-info {
+            @include theme.property(color, primary);
+        }
+
+        .is-danger {
+            @include theme.property(color, error);
+        }
+
+        .is-success {
+            @include theme.property(color, green);
+            @include theme.property(border-color, green);
+        }
+
+        .mdc-typography--caption,
+        button {
+            color: rgba(dimgray, 0.8);
+            white-space: pre-wrap;
+        }
+    }
+}

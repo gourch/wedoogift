@@ -1,0 +1,19 @@
+@use "@material/theme";
+@use '@material/textfield';
+
+// Text field
+.mdc-text-field {
+    @include textfield.outline-shape-radius(20px);
+  
+    width: 100%;
+    margin: 1rem 0 0.5rem 0;
+      .trailing-icon {
+      position: absolute;
+      right: 10px;
+      pointer-events: all;
+      cursor: pointer;
+    }
+    .mdc-text-field__input {
+      padding: 0;
+    }
+  }

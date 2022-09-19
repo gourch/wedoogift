@@ -1,0 +1,50 @@
+<section class="dashboard mdc-card">
+
+    <h1 class="mdc-typography--headline1">Wedoogift </h1>
+    <form [formGroup]="form">
+        <div class="mdc-layout-grid mdc-layout-grid--align-center">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1">
+                    <div class="mdc-touch-target-wrapper">
+                        <button class="mdc-fab mdc-fab--mini mdc-fab--touch" (click)="previewAmount()">
+                            <div class="mdc-fab__ripple"></div>
+                            <span class="material-icons mdc-fab__icon">remove</span>
+                            <div class="mdc-fab__touch"></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-10">
+                    <label class="mdc-text-field mdc-text-field--outlined">
+                        <span class="mdc-notched-outline">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label" id="amout">Montant désiré</span>
+                            </span>
+                            <span class="mdc-notched-outline__trailing"></span>
+                        </span>
+                        <input type="number" class="mdc-text-field__input" aria-labelledby="amount" placeholder="" formControlName="amount" required>
+                    </label>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-1">
+                    <div class="mdc-touch-target-wrapper">
+                        <button class="mdc-fab mdc-fab--mini mdc-fab--touch" (click)="nextAmount()">
+                            <div class="mdc-fab__ripple"></div>
+                            <span class="material-icons mdc-fab__icon">add</span>
+                            <div class="mdc-fab__touch"></div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-container">
+            <button class="mdc-button mdc-button--raised" type="button" (click)="onSubmit()" [disabled]="loadingRequest">
+                <span class="mdc-button__ripple"></span>
+                <span class="mdc-button__label">Valider</span>
+            </button>
+        </div>
+    </form>
+
+    <app-calculator [amount]=currentAmount (amountChange)="updateAmount($event)"></app-calculator>
+
+</section>

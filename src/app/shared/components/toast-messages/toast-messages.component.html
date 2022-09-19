@@ -1,0 +1,19 @@
+<div class="toast-wrapper">
+    <aside *ngFor="let message of messages | async">
+        <div class="mdc-snackbar mdc-snackbar--open">
+            <div class="mdc-snackbar__surface" role="status" aria-relevant="additions"
+                [ngClass]="{ 'is-info': message.type=='information', 'is-danger': message.type=='danger', 'is-success': message.type=='success' }">
+                <i class="mdc-icon-button material-icons" [ngSwitch]="message.type">
+                    <span *ngSwitchCase="'information'">info</span>
+                    <span *ngSwitchCase="'danger'">error</span>
+                    <span *ngSwitchCase="'success'">done</span>
+                </i>
+                <div class="mdc-snackbar__label" aria-atomic="false">
+                    <span class="mdc-typography--overline">{{message.type}}</span>
+                    <div class="mdc-typography mdc-typography--caption">{{message.content}}</div>
+                </div>
+                <button type="button" class="mdc-icon-button material-icons" (click)="dismiss(message)">close</button>
+            </div>
+        </div>
+    </aside>
+</div>

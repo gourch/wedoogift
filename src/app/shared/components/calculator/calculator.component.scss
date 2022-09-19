@@ -1,0 +1,19 @@
+.calculator {
+    h3 {
+        text-align: center;
+    }
+    .mdc-card {
+        width: 10rem;
+        height: 5rem;
+        .mdc-card__content {
+            font-size: 4rem;
+            padding: 0 2rem;
+        }
+    }
+    .mdc-card.select {
+        cursor: pointer;
+        :hover {
+            box-shadow:  0 0 6px 3px rgba(gray, 0.5);
+        }
+    }
+}
